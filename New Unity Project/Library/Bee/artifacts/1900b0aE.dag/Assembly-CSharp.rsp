@@ -388,6 +388,7 @@
 "Assets/Scripts/Player/Player Controls.cs"
 "Assets/Scripts/Player/PlayerCamera.cs"
 "Assets/Scripts/Player/PlayerProperties.cs"
+"Assets/Scripts/UI/BargainCandyListDisplay.cs"
 "Assets/Scripts/UI/InteractAppear.cs"
 "Assets/Scripts/UI/InteractVisual.cs"
 "Assets/Scripts/UI/InventoryDisplay.cs"

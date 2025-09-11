@@ -11,8 +11,11 @@ public class PlayerProperties : MonoBehaviour
     void Start()
     {
         candy = new Dictionary<string, int>();
-        candy.Add("chocolate", 4);
-        Debug.Log(candy["chocolate"]);
+        candy.Add("Chocolate", 4);
+        candy.Add("Lolipop", 1);
+        candy.Add("Skittle", 2);
+        candy.Add("Jawbreaker", 6);
+        candy.Add("Gummy", 3);
     }
 
     // Update is called once per frame

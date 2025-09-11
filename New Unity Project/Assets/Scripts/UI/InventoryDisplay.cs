@@ -24,7 +24,7 @@ public class InventoryDisplay : MonoBehaviour
         candy = player.GetComponent<PlayerProperties>().candy;
         foreach(KeyValuePair<string, int> candyPair in candy)
         {
-            candyText.text += candyPair.Key + ": " + candyPair.Value;
+            candyText.text += candyPair.Key + ": " + candyPair.Value + "\n";
         }
         
     }
