@@ -19,7 +19,7 @@ public class InteractAppear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<PlayerControls>().interacting && interactable)
+        if(player.GetComponent<PlayerControls>().interactKeyDown && interactable)
         {
             Invoke(interaction + "Enter", 0f);
         }
@@ -38,13 +38,17 @@ public class InteractAppear : MonoBehaviour
         Invoke(interaction + "Exit", 0f);
     }
 
-    private void uiAppearEnter()
+    public void uiAppearEnter()
     {
+       
         uiFolder.SetActive(true);
+        player.GetComponent<PlayerControls>().interacting = true;
+        
     }
 
-    private void uiAppearExit()
+    public void uiAppearExit()
     {
+        player.GetComponent<PlayerControls>().interacting = false;
         uiFolder.SetActive(false);
     }
 }

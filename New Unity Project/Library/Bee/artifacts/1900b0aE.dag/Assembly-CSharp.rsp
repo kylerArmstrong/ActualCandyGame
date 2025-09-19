@@ -389,10 +389,16 @@
 "Assets/Scripts/Player/PlayerCamera.cs"
 "Assets/Scripts/Player/PlayerProperties.cs"
 "Assets/Scripts/UI/BargainCandyListDisplay.cs"
+"Assets/Scripts/UI/candyButtonManager.cs"
+"Assets/Scripts/UI/CandyButtonManagerPurchase.cs"
+"Assets/Scripts/UI/CandySelect.cs"
+"Assets/Scripts/UI/InputPrice.cs"
 "Assets/Scripts/UI/InteractAppear.cs"
 "Assets/Scripts/UI/InteractVisual.cs"
 "Assets/Scripts/UI/InventoryDisplay.cs"
 "Assets/Scripts/UI/MoneyDisplay.cs"
+"Assets/Scripts/UI/purchaseCandySelect.cs"
+"Assets/Scripts/UI/PurchaseConfirm.cs"
 -langversion:9.0
 /deterministic
 /optimize+

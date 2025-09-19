@@ -10,22 +10,48 @@ public class BargainCandyListDisplay : MonoBehaviour
     public GameObject player;
 
     private Dictionary<string, int> candy;
+    public GameObject buttonSet;
+    public GameObject candyManager;
+    public Transform buttonSetPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void OnEnable()
+    {
+        Debug.Log("enable");
+        if(player.GetComponent<PlayerControls>().interacting == false)
+        {
+            Debug.Log("change");
+            change();
+        }
+    }
+
+    public void change()
+    {
+        int positionCount = 0;
         candyText.text = "";
         candy = player.GetComponent<PlayerProperties>().candy;
-        foreach(KeyValuePair<string, int> candyPair in candy)
+        foreach (KeyValuePair<string, int> candyPair in candy)
         {
+            Debug.Log("go");
             candyText.text += candyPair.Key + ": \n";
+            //make a button set even with it
+            Vector3 temp = buttonSetPos.position;
+            temp.y = temp.y + (positionCount * -43);//change the # to change the offset of the buttons
+            GameObject but = Instantiate(buttonSet, temp, buttonSetPos.rotation, buttonSetPos);
+            but.GetComponent<CandySelect>().chosenCandy = candyPair.Key;
+            but.GetComponent<CandySelect>().candyManager = candyManager;
+            positionCount++;
         }
     }
 }

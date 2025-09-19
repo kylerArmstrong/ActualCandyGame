@@ -24,6 +24,7 @@ public class PlayerControls : MonoBehaviour
     float  horizontalInput;
     float verticalInput;
 
+    public bool interactKeyDown;
     public bool interacting;
 
     Vector3 moveDirection;
@@ -61,11 +62,11 @@ public class PlayerControls : MonoBehaviour
     {
         if(Input.GetKey(interactKey))
         {
-            interacting = true;
+            interactKeyDown = true;
         }
         else
         {
-            interacting = false;
+            interactKeyDown = false;
         }
     }
 
