@@ -17,6 +17,7 @@ public class candyButtonManager : MonoBehaviour
     public bool purchase;
 
     public GameObject purchaseConfirmBut;
+    
 
     void Start()
     {

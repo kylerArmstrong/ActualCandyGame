@@ -14,6 +14,9 @@ public class BargainCandyListDisplay : MonoBehaviour
     public GameObject candyManager;
     public Transform buttonSetPos;
 
+    public TMP_Text priceText;
+    public bool purchase;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,8 +52,18 @@ public class BargainCandyListDisplay : MonoBehaviour
             Vector3 temp = buttonSetPos.position;
             temp.y = temp.y + (positionCount * -43);//change the # to change the offset of the buttons
             GameObject but = Instantiate(buttonSet, temp, buttonSetPos.rotation, buttonSetPos);
-            but.GetComponent<CandySelect>().chosenCandy = candyPair.Key;
-            but.GetComponent<CandySelect>().candyManager = candyManager;
+            if (purchase)
+            {
+                but.GetComponent<purchaseCandySelect>().chosenCandy = candyPair.Key;
+                but.GetComponent<purchaseCandySelect>().candyManager = candyManager;
+                but.GetComponent<purchaseCandySelect>().priceText = priceText;
+            }
+            else
+            {
+                but.GetComponent<CandySelect>().chosenCandy = candyPair.Key;
+                but.GetComponent<CandySelect>().candyManager = candyManager;
+                
+            }
             positionCount++;
         }
     }

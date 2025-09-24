@@ -13,6 +13,8 @@ public class purchaseCandySelect : MonoBehaviour
 
     public string chosenCandy;
     public GameObject candyManager;
+
+    public TMP_Text priceText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,14 +33,35 @@ public class purchaseCandySelect : MonoBehaviour
         chosenCandy = cand;
     }
     
+    // Must add a new if statement to both increase and decrease for the prices
      public void Increase()
     {
-        if (candy[chosenCandy] > currentAmount)
+
+        currentAmount++;
+        candyManager.GetComponent<candyButtonManager>().increasePurchase(chosenCandy);
+        if (chosenCandy == "Chocolate")
         {
-            currentAmount++;
-            candyManager.GetComponent<candyButtonManager>().increasePurchase(chosenCandy);
-            
+            priceText.text = int.Parse(priceText.text) + 2 + "";
         }
+        else if (chosenCandy == "Lolipop")
+        {
+            priceText.text = int.Parse(priceText.text) + 1 + "";
+        }
+        else if (chosenCandy == "Skittle")
+        {
+            priceText.text = int.Parse(priceText.text) + 3 + "";
+        }
+        else if (chosenCandy == "Jawbreaker")
+        {
+            priceText.text = int.Parse(priceText.text) + 5 + "";
+        }
+        else if (chosenCandy == "Gummy")
+        {
+            priceText.text = int.Parse(priceText.text) + 1 + "";
+        }
+
+
+
     }
 
     public void Decrease()
@@ -47,6 +70,26 @@ public class purchaseCandySelect : MonoBehaviour
         {
             currentAmount--;
             candyManager.GetComponent<candyButtonManager>().decreasePurchase(chosenCandy);
+            if (chosenCandy == "Chocolate")
+            {
+                priceText.text = int.Parse(priceText.text) - 2+ "";
+            }
+            else if (chosenCandy == "Lolipop")
+            {
+                priceText.text = int.Parse(priceText.text) - 1+ "";
+            }
+            else if (chosenCandy == "Skittle")
+            {
+                priceText.text = int.Parse(priceText.text) - 3+ "";
+            }
+            else if (chosenCandy == "Jawbreaker")
+            {
+                priceText.text = int.Parse(priceText.text) - 5+ "";
+            }
+            else if (chosenCandy == "Gummy")
+            {
+                priceText.text = int.Parse(priceText.text) - 1+ "";
+            }
         }
     }
 

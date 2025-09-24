@@ -34,13 +34,14 @@ public class PurchaseConfirm : MonoBehaviour
 
     public void confirm()
     {
-        if (text.text != "" && hasCandy)
+        if (text.text != "" && hasCandy && player.GetComponent<PlayerProperties>().money - price >= 0)
         {
             player.GetComponent<PlayerProperties>().money -= price;
             player.GetComponent<PlayerControls>().interacting = false;
             purchaseUiFolder.SetActive(false);
             candyButManager.GetComponent<candyButtonManager>().sale();
             hasCandy = false;
+            text.text = "0";
         }
     }
 }
