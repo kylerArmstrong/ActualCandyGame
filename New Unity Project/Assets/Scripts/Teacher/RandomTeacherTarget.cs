@@ -7,6 +7,8 @@ public class RandomTeacherTarget : MonoBehaviour
     public float maxX;
     public float minZ;
     public float maxZ;
+
+    public float waitTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +16,7 @@ public class RandomTeacherTarget : MonoBehaviour
         maxX = area.transform.position.x + (area.transform.localScale.x/2);
         minZ = area.transform.position.z - (area.transform.localScale.y/2);
         maxZ = area.transform.position.z + (area.transform.localScale.y/2);
-        Invoke("changeSpot", 5f);
+        Invoke("changeSpot", waitTime);
     }
 
     // Update is called once per frame
@@ -25,8 +27,12 @@ public class RandomTeacherTarget : MonoBehaviour
 
     public void changeSpot()
     {
+        minX = area.transform.position.x - (area.transform.localScale.x/2);
+        maxX = area.transform.position.x + (area.transform.localScale.x/2);
+        minZ = area.transform.position.z - (area.transform.localScale.y/2);
+        maxZ = area.transform.position.z + (area.transform.localScale.y/2);
         Vector3 newSpot = new Vector3(Random.Range(minX, maxX), area.transform.position.y, Random.Range(minZ, maxZ));
         this.transform.position = newSpot;
-        Invoke("changeSpot", 5f);
+        Invoke("changeSpot", waitTime);
     }
 }
