@@ -10,10 +10,12 @@ public class InteractAppear : MonoBehaviour
     public GameObject player;
     public GameObject uiFolder;
 
+    public bool changeInteracting;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        changeInteracting = true;
     }
 
     // Update is called once per frame
@@ -27,15 +29,29 @@ public class InteractAppear : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        button.SetActive(true);
-        interactable = true;
+        if(other.tag == "Player")
+        {
+            button.SetActive(true);
+            interactable = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        button.SetActive(false);
-        interactable = false;
-        Invoke(interaction + "Exit", 0f);
+        if(other.tag == "Player")
+        {
+            button.SetActive(false);
+            interactable = false;
+            if(this.transform.parent.transform.parent.gameObject == player.GetComponent<PlayerProperties>().interactingWith)//if the player is interacting with this hitbox
+            {
+                changeInteracting = true;
+            }
+            else
+            {
+                changeInteracting = false;
+            }
+            Invoke(interaction + "Exit", 0f);
+        }
     }
 
     public void uiAppearEnter()
@@ -43,12 +59,15 @@ public class InteractAppear : MonoBehaviour
        
         uiFolder.SetActive(true);
         player.GetComponent<PlayerControls>().interacting = true;
-        
+        player.GetComponent<PlayerProperties>().interactingWith = this.transform.parent.transform.parent.gameObject;//first parent is the button folder second one is the actual object
     }
 
     public void uiAppearExit()
     {
-        player.GetComponent<PlayerControls>().interacting = false;
+        if(changeInteracting == true)
+        {
+            player.GetComponent<PlayerControls>().interacting = false;
+        }
         uiFolder.SetActive(false);
     }
 }

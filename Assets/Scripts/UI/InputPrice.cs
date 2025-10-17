@@ -16,6 +16,7 @@ public class InputPrice : MonoBehaviour
     public int price;
     public GameObject candyButManager;
     public bool hasCandy;
+    public GameObject customer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +52,7 @@ public class InputPrice : MonoBehaviour
             bargainUiFolder.SetActive(false);
             candyButManager.GetComponent<candyButtonManager>().sale();
             hasCandy = false;
+            customer.GetComponent<StudentMovement>().mode = "learn";
         }
 
 

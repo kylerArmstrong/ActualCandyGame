@@ -12,6 +12,7 @@ public class candyButtonManager : MonoBehaviour
     public Dictionary<string, int> candyPurchase;
     public GameObject priceInput;
     public GameObject player;
+    public GameObject customer;
     public bool interacting;
     public bool notChanged;
     public bool purchase;
@@ -47,6 +48,7 @@ public class candyButtonManager : MonoBehaviour
                     {
                         priceInput.GetComponent<InputPrice>().hasCandy = true;
                         notChanged = false;
+                        priceInput.GetComponent<InputPrice>().customer = player.GetComponent<PlayerProperties>().interactingWith;
                     }
                 }
                 if (notChanged)

@@ -6,6 +6,7 @@ public class PlayerProperties : MonoBehaviour
 
     public float money;
     public Dictionary<string, int> candy;
+    public GameObject interactingWith;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

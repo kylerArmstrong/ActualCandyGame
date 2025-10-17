@@ -18,6 +18,7 @@ public class PlayerControls : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode interactKey = KeyCode.E;
+    public KeyCode phoneKey = KeyCode.Q;
 
     public Transform orientation;
 
@@ -26,6 +27,8 @@ public class PlayerControls : MonoBehaviour
 
     public bool interactKeyDown;
     public bool interacting;
+
+    public GameObject phoneFolder;
 
     Vector3 moveDirection;
     Rigidbody rb;
@@ -47,6 +50,7 @@ public class PlayerControls : MonoBehaviour
         MovementInput();
         SpeedLimit();
         interact();
+        phone();
 
         if(grounded)
         {
@@ -55,6 +59,20 @@ public class PlayerControls : MonoBehaviour
         else
         {
             rb.linearDamping = 0;
+        }
+    }
+
+    private void phone()
+    {
+        if(Input.GetKeyDown(phoneKey) && !phoneFolder.activeInHierarchy)
+        {
+            phoneFolder.SetActive(true);
+            interacting = true;
+        } 
+        else if(Input.GetKeyDown(phoneKey) && phoneFolder.activeInHierarchy)
+        {
+            phoneFolder.SetActive(false);
+            interacting = false;
         }
     }
 
