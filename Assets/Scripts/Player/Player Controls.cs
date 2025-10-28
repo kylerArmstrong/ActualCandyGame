@@ -145,6 +145,5 @@ public class PlayerControls : MonoBehaviour
     {
         readyToJump = true;
     }
-
     
 }

@@ -102,6 +102,14 @@ public class TeacherMovement : MonoBehaviour
         }
     }
 
+    public void seePlayer()
+    {
+        if(mode == "patrol")
+        {
+            mode = "chase";
+        }
+    }
+
     public bool close()
     {
         if (waiting > 0)

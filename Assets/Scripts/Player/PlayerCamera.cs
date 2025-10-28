@@ -19,6 +19,9 @@ public class PlayerCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         interacting = player.GetComponent<PlayerControls>().interacting;
+        sensX = DataStorage.Instance.GetComponent<DataStorage>().sensSave * 60;
+        sensY = DataStorage.Instance.GetComponent<DataStorage>().sensSave * 60;
+
     }
 
     // Update is called once per frame

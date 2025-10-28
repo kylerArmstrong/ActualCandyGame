@@ -63,6 +63,7 @@ public class TeachVision : MonoBehaviour
         {
             lastPlayerPos.position = player.localPosition;
             teacher.GetComponent<TeacherMovement>().lookAround = false;
+            teacher.GetComponent<TeacherMovement>().seePlayer();
         }
     }
 }
