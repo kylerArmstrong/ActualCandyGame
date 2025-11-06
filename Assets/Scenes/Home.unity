@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 241845338}
   - component: {fileID: 241845337}
   - component: {fileID: 241845336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7022,37 +7022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407759657}
   m_CullTransparentMesh: 1
---- !u!1 &1478521343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1478521344}
-  m_Layer: 0
-  m_Name: check data storage script
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1478521344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478521343}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 705.87354, y: 377.094, z: -0.22246106}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1483286192
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,7 +7072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de390c146ba3eed42b532fe5e06e22dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 393535968}
   candyText: {fileID: 1483286195}
 --- !u!114 &1483286195
 MonoBehaviour:
@@ -10727,5 +10696,4 @@ SceneRoots:
   - {fileID: 703041477}
   - {fileID: 1332806338}
   - {fileID: 1912571616}
-  - {fileID: 1478521344}
   - {fileID: 1630116496}

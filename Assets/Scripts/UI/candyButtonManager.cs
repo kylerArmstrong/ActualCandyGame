@@ -17,6 +17,8 @@ public class candyButtonManager : MonoBehaviour
     public bool notChanged;
     public bool purchase;
 
+    public float marketPrice;
+
     public GameObject purchaseConfirmBut;
     
 
@@ -80,11 +82,52 @@ public class candyButtonManager : MonoBehaviour
     public void increaseBargain(string chosenCandy)
     {
         candyBargain[chosenCandy]--;
+        if (chosenCandy == "Chocolate")
+        {
+            marketPrice += 2.4f;
+        }
+        else if (chosenCandy == "Lolipop")
+        {
+            marketPrice += 1.2f;
+        }
+        else if (chosenCandy == "Skittle")
+        {
+            marketPrice += 3.6f;
+        }
+        else if (chosenCandy == "Jawbreaker")
+        {
+            marketPrice += 6f;
+        }
+        else if (chosenCandy == "Gummy")
+        {
+            marketPrice += 1.2f;
+        }
+        //priceInput.GetComponent<InputPrice>().marketSalePrice += chosenCandy.price?
     }
 
     public void decreaseBargain(string chosenCandy)
     {
         candyBargain[chosenCandy]++;
+        if (chosenCandy == "Chocolate")
+        {
+            marketPrice -= 2.4f;
+        }
+        else if (chosenCandy == "Lolipop")
+        {
+            marketPrice -= 1.2f;
+        }
+        else if (chosenCandy == "Skittle")
+        {
+            marketPrice -= 3.6f;
+        }
+        else if (chosenCandy == "Jawbreaker")
+        {
+            marketPrice -= 6f;
+        }
+        else if (chosenCandy == "Gummy")
+        {
+            marketPrice -= 1.2f;
+        }
     }
 
     public void increasePurchase(string chosenCandy)
@@ -97,8 +140,16 @@ public class candyButtonManager : MonoBehaviour
         candyBargain[chosenCandy]--;
     }
 
+    public void getMarketPrice()
+    {
+       
+        priceInput.GetComponent<InputPrice>().marketSalePrice = marketPrice;
+    }
+
     public void sale()
     {
+
+        
         player.GetComponent<PlayerProperties>().candy = candyBargain;
         candy = player.GetComponent<PlayerProperties>().candy;
         candyBargain = new Dictionary<string, int>();

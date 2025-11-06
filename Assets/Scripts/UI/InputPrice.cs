@@ -17,6 +17,7 @@ public class InputPrice : MonoBehaviour
     public GameObject candyButManager;
     public bool hasCandy;
     public GameObject customer;
+    public float marketSalePrice;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +46,7 @@ public class InputPrice : MonoBehaviour
 
     public void confirm()
     {
-        if (text.text != "" && hasCandy)
+        if (text.text != "" && hasCandy && notOutrageous())
         {
             player.GetComponent<PlayerProperties>().money += price;
             player.GetComponent<PlayerControls>().interacting = false;
@@ -53,9 +54,20 @@ public class InputPrice : MonoBehaviour
             candyButManager.GetComponent<candyButtonManager>().sale();
             hasCandy = false;
             customer.GetComponent<StudentMovement>().mode = "learn";
+            
         }
 
 
+    }
+
+    public bool notOutrageous()
+    {
+        candyButManager.GetComponent<candyButtonManager>().getMarketPrice();
+        if(marketSalePrice * .7 < price && price < marketSalePrice * 1.3)
+        {
+            return true;
+        }
+        return false;
     }
 
 
