@@ -11,6 +11,9 @@ public class Schedule : MonoBehaviour
     public int inc;
     public GameObject player;
     public GameObject sensSlider;
+    public GameObject scheduleText;
+    public GameObject holder;
+    public GameObject leaveSchoolUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,10 +47,12 @@ public class Schedule : MonoBehaviour
     {
         inc++;
         currentPeriod = periods[inc];
+        scheduleText.GetComponent<ScheduleDisplay>().UpdateScheduleText();
         if(currentPeriod == "Home")
         {
-            loadStuff();
-            SceneManager.LoadScene("Home");
+            //loadStuff();
+            holder.SetActive(true);
+            leaveSchoolUI.SetActive(true);
         }
         else
         {
@@ -69,5 +74,6 @@ public class Schedule : MonoBehaviour
         inc = 0;
         currentPeriod = periods[inc];
         timeLeft = timePerPeriod;
+        scheduleText.GetComponent<ScheduleDisplay>().UpdateScheduleText();
     }
 }

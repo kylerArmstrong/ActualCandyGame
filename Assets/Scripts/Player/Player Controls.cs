@@ -33,6 +33,8 @@ public class PlayerControls : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
+    public bool sitting;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -109,16 +111,19 @@ public class PlayerControls : MonoBehaviour
 
     private void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        
-        if(grounded)
+        if(!sitting)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-        }
-        else if(!grounded)
-        {
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
             
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airmultiplier, ForceMode.Force);
+            if(grounded)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            }
+            else if(!grounded)
+            {
+                
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airmultiplier, ForceMode.Force);
+            }
         }
     }
 

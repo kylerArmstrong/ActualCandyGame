@@ -7,6 +7,7 @@ public class LeaveHomePrompt : MonoBehaviour
     public GameObject uiFolder;
     public GameObject player;
     public GameObject sensSlider;
+    public string scene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +24,7 @@ public class LeaveHomePrompt : MonoBehaviour
     public void yes()
     {
         loadStuff();
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(scene);
     }
 
     public void no()
