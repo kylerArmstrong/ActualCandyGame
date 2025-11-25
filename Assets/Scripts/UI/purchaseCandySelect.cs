@@ -45,13 +45,13 @@ public class purchaseCandySelect : MonoBehaviour
         }
         else if (chosenCandy == "Lolipop")
         {
-            priceText.text = int.Parse(priceText.text) + 1 + "";
+            priceText.text = int.Parse(priceText.text) + 4 + "";
         }
         else if (chosenCandy == "Skittle")
         {
             priceText.text = int.Parse(priceText.text) + 3 + "";
         }
-        else if (chosenCandy == "Jawbreaker")
+        else if (chosenCandy == "Gum")
         {
             priceText.text = int.Parse(priceText.text) + 5 + "";
         }
@@ -76,13 +76,13 @@ public class purchaseCandySelect : MonoBehaviour
             }
             else if (chosenCandy == "Lolipop")
             {
-                priceText.text = int.Parse(priceText.text) - 1+ "";
+                priceText.text = int.Parse(priceText.text) - 4+ "";
             }
             else if (chosenCandy == "Skittle")
             {
                 priceText.text = int.Parse(priceText.text) - 3+ "";
             }
-            else if (chosenCandy == "Jawbreaker")
+            else if (chosenCandy == "Gum")
             {
                 priceText.text = int.Parse(priceText.text) - 5+ "";
             }

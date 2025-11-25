@@ -88,13 +88,13 @@ public class candyButtonManager : MonoBehaviour
         }
         else if (chosenCandy == "Lolipop")
         {
-            marketPrice += 1.2f;
+            marketPrice += 4.8f;
         }
         else if (chosenCandy == "Skittle")
         {
             marketPrice += 3.6f;
         }
-        else if (chosenCandy == "Jawbreaker")
+        else if (chosenCandy == "Gum")
         {
             marketPrice += 6f;
         }
@@ -114,13 +114,13 @@ public class candyButtonManager : MonoBehaviour
         }
         else if (chosenCandy == "Lolipop")
         {
-            marketPrice -= 1.2f;
+            marketPrice -= 4.8f;
         }
         else if (chosenCandy == "Skittle")
         {
             marketPrice -= 3.6f;
         }
-        else if (chosenCandy == "Jawbreaker")
+        else if (chosenCandy == "Gum")
         {
             marketPrice -= 6f;
         }

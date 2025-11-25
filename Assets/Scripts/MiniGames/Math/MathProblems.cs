@@ -14,6 +14,8 @@ public class MathProblems : MonoBehaviour
     public TMP_Text problemText;
     public int maxProblems;
 
+    public GameObject inputBar;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +39,7 @@ public class MathProblems : MonoBehaviour
         maxProblems = Random.Range(5, 20);
         correctProblems = 0;
         totalProblems = 0;
+        inputBar.SetActive(true);
         chooseNextProblem();
     }
 
@@ -63,9 +66,10 @@ public class MathProblems : MonoBehaviour
             correctProblems++;
         }
         totalProblems++;
-        if(totalProblems == maxProblems)
+        if(totalProblems >= maxProblems)
         {
             problemText.text = "You got a: " + correctProblems + "/" + totalProblems + "\n" + (correctProblems/totalProblems) * 100 + "%";
+            inputBar.SetActive(false);
         }
         else
         {

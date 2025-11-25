@@ -16,7 +16,7 @@ public class PlayerProperties : MonoBehaviour
         candy.Add("Chocolate", 0);
         candy.Add("Lolipop", 0);
         candy.Add("Skittle", 0);
-        candy.Add("Jawbreaker", 0);
+        candy.Add("Gum", 0);
         candy.Add("Gummy", 0);
         foreach (KeyValuePair<string, int> candyPair in DataStorage.Instance.GetComponent<DataStorage>().playerCandy)
         {
