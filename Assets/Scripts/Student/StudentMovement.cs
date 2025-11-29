@@ -9,6 +9,8 @@ public class StudentMovement : MonoBehaviour
     public Transform[] spots;
     public int period;
     public int increment;
+
+    public GameObject schedule;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,13 +30,10 @@ public class StudentMovement : MonoBehaviour
 
     public void learn()
     {
-        navMeshAgent.SetDestination(desks[period].position);
+        navMeshAgent.SetDestination(desks[schedule.GetComponent<Schedule>().inc].position);
     }
 
-    public void nextClass()//will be called by schedule or something
-    {
-        period++;
-    }
+    
 
     public void deal()
     {

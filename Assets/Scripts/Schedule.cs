@@ -39,13 +39,14 @@ public class Schedule : MonoBehaviour
 
     public void nextPeriod()
     {
+        inc++;
         currentPeriod = "passing";
         Invoke("next", timeBetweenPeriods);
     }
 
     private void next()
     {
-        inc++;
+        
         currentPeriod = periods[inc];
         scheduleText.GetComponent<ScheduleDisplay>().UpdateScheduleText();
         if(currentPeriod == "Home")

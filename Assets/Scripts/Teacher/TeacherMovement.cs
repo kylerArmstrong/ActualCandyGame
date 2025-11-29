@@ -16,6 +16,10 @@ public class TeacherMovement : MonoBehaviour
     public float waiting;
     public bool lookAround;
     public float lookingTimer;
+
+    public GameObject bEars;
+    public GameObject rEars;
+    public GameObject yEars;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,10 +48,16 @@ public class TeacherMovement : MonoBehaviour
             }
             if (lookAround)
             {
+                rEars.SetActive(false);
+                bEars.SetActive(false);
+                yEars.SetActive(true);
                 navMeshAgent.SetDestination(lookAroundTarget.position);
             }
             else if (!lookAround)
             {
+                rEars.SetActive(true);
+                bEars.SetActive(false);
+                yEars.SetActive(false);
                 navMeshAgent.SetDestination(lastPlayerPos.position);
                 lookingTimer = 10f;
             }
@@ -63,6 +73,9 @@ public class TeacherMovement : MonoBehaviour
 
     public void teach()
     {
+        rEars.SetActive(false);
+        bEars.SetActive(true);
+        yEars.SetActive(false);
         if (teachMode == "teach")//teaching area
         {
             navMeshAgent.SetDestination(teachTarget.position);
@@ -84,6 +97,9 @@ public class TeacherMovement : MonoBehaviour
 
     public void patrol()//patrol hallways
     {
+        rEars.SetActive(false);
+        bEars.SetActive(false);
+        yEars.SetActive(true);
         //go to target
         //if target is reached 
         //increment++

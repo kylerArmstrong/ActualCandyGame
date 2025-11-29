@@ -47,7 +47,7 @@ public class PlayerControls : MonoBehaviour
     private void Update()
     {
         //ground check raycast
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.05f, groundLayer);
 
         MovementInput();
         SpeedLimit();
@@ -117,12 +117,12 @@ public class PlayerControls : MonoBehaviour
             
             if(grounded)
             {
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+                rb.AddForce(moveDirection.normalized * moveSpeed * 20f, ForceMode.Force);
             }
             else if(!grounded)
             {
                 
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airmultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 20f * airmultiplier, ForceMode.Force);
             }
         }
     }
