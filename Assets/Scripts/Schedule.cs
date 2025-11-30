@@ -14,10 +14,29 @@ public class Schedule : MonoBehaviour
     public GameObject scheduleText;
     public GameObject holder;
     public GameObject leaveSchoolUI;
+
+    public GameObject p1Door;
+    public GameObject p1Seat;
+    public GameObject p2Door;
+    public GameObject p2Seat;
+    public GameObject lunchDoor;
+    public GameObject gymDoor;
+    public GameObject mat;
+    public GameObject p5Door;
+    public GameObject p5Seat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartDay();
+        p1Door.SetActive(false);
+        p1Seat.SetActive(false);
+        p2Door.SetActive(false);
+        p2Seat.SetActive(false);
+        lunchDoor.SetActive(false);
+        gymDoor.SetActive(false);
+        mat.SetActive(false);
+        p5Door.SetActive(false);
+        p5Seat.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +53,67 @@ public class Schedule : MonoBehaviour
             timeLeft = 99999f;
             nextPeriod();
 
+        }
+
+        if(inc == 0)
+        {
+            p1Door.SetActive(true);
+            p1Seat.SetActive(true);
+            p2Door.SetActive(false);
+            p2Seat.SetActive(false);
+            lunchDoor.SetActive(false);
+            gymDoor.SetActive(false);
+            mat.SetActive(false);
+            p5Door.SetActive(false);
+            p5Seat.SetActive(false);
+        }
+        else if (inc == 1)
+        {
+            p1Door.SetActive(false);
+            p1Seat.SetActive(false);
+            p2Door.SetActive(true);
+            p2Seat.SetActive(true);
+            lunchDoor.SetActive(false);
+            gymDoor.SetActive(false);
+            mat.SetActive(false);
+            p5Door.SetActive(false);
+            p5Seat.SetActive(false);
+        }
+        else if (inc == 2)
+        {
+            p1Door.SetActive(false);
+            p1Seat.SetActive(false);
+            p2Door.SetActive(false);
+            p2Seat.SetActive(false);
+            lunchDoor.SetActive(true);
+            gymDoor.SetActive(false);
+            mat.SetActive(false);
+            p5Door.SetActive(false);
+            p5Seat.SetActive(false);
+        }
+        else if (inc == 3)
+        {
+            p1Door.SetActive(false);
+            p1Seat.SetActive(false);
+            p2Door.SetActive(false);
+            p2Seat.SetActive(false);
+            lunchDoor.SetActive(false);
+            gymDoor.SetActive(true);
+            mat.SetActive(true);
+            p5Door.SetActive(false);
+            p5Seat.SetActive(false);
+        }
+        else if (inc == 4)
+        {
+            p1Door.SetActive(false);
+            p1Seat.SetActive(false);
+            p2Door.SetActive(false);
+            p2Seat.SetActive(false);
+            lunchDoor.SetActive(false);
+            gymDoor.SetActive(false);
+            mat.SetActive(false);
+            p5Door.SetActive(true);
+            p5Seat.SetActive(true);
         }
     }
 

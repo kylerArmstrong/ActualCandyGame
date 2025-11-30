@@ -30,7 +30,11 @@ public class StudentMovement : MonoBehaviour
 
     public void learn()
     {
-        navMeshAgent.SetDestination(desks[schedule.GetComponent<Schedule>().inc].position);
+        if(increment < 6)
+        {
+            navMeshAgent.SetDestination(desks[schedule.GetComponent<Schedule>().inc].position);
+        }
+        
     }
 
     

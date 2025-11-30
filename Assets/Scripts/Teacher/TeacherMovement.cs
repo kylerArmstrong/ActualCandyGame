@@ -17,6 +17,13 @@ public class TeacherMovement : MonoBehaviour
     public bool lookAround;
     public float lookingTimer;
 
+    public int patrolPeriod;
+    public GameObject schedule;
+    public bool patrolled;
+
+    public GameObject player;
+    public GameObject sentHome;
+
     public GameObject bEars;
     public GameObject rEars;
     public GameObject yEars;
@@ -26,13 +33,36 @@ public class TeacherMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         lookAround = false;
         lookingTimer = 10f;
+        teachMode = "teach";
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if(schedule.GetComponent<Schedule>().inc == patrolPeriod-1 && !patrolled)
+        {
+            mode = "patrol";
+            patrolled = true;
+        }
+        else if(schedule.GetComponent<Schedule>().inc != patrolPeriod - 1)
+        {
+            mode = "teach";
+        }
         Invoke(mode, 0f);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            catchPlayer();
+        }
+    }
+
+    public void catchPlayer()
+    {
+        player.GetComponent<PlayerProperties>().money = player.GetComponent<PlayerProperties>().money * .75f;
+        sentHome.SetActive(true);
     }
 
     public void chase()
@@ -53,7 +83,7 @@ public class TeacherMovement : MonoBehaviour
                 yEars.SetActive(true);
                 navMeshAgent.SetDestination(lookAroundTarget.position);
             }
-            else if (!lookAround)
+            else if (!lookAround)//actually chasing player
             {
                 rEars.SetActive(true);
                 bEars.SetActive(false);
@@ -64,8 +94,8 @@ public class TeacherMovement : MonoBehaviour
             if (lookingTimer < 0)
             {
                 lookAround = false;
-                mode = "teach";
-                teachMode = "teach";
+                mode = "patrol";
+                //teachMode = "teach";
             }
             lookingTimer -= Time.deltaTime;
         }
