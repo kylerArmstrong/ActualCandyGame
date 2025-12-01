@@ -30,15 +30,15 @@ public class SensitivityChange : MonoBehaviour
         string sensStr = input.text;
         sens = int.Parse(sensStr);
         slider.value = sens;
-        playerCam.GetComponent<PlayerCamera>().sensX = sens*60;
-        playerCam.GetComponent<PlayerCamera>().sensY = sens*60;
+        playerCam.GetComponent<PlayerCamera>().sensX = sens*45;
+        playerCam.GetComponent<PlayerCamera>().sensY = sens*45;
     }
 
     public void sliderChange()
     {
         sens = (int)slider.value;
         input.text = sens + "";
-        playerCam.GetComponent<PlayerCamera>().sensX = sens*60;
-        playerCam.GetComponent<PlayerCamera>().sensY = sens*60;
+        playerCam.GetComponent<PlayerCamera>().sensX = sens*45;
+        playerCam.GetComponent<PlayerCamera>().sensY = sens*45;
     }
 }

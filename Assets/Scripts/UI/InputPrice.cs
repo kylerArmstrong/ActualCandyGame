@@ -18,6 +18,10 @@ public class InputPrice : MonoBehaviour
     public bool hasCandy;
     public GameObject customer;
     public float marketSalePrice;
+
+    public GameObject angryFace;
+    public GameObject goodFace;
+    public TMP_Text goodOrBadpriceText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -56,6 +60,17 @@ public class InputPrice : MonoBehaviour
             customer.GetComponent<StudentMovement>().mode = "learn";
             
         }
+        else if(!notOutrageous())
+        {
+            if(marketSalePrice * .7 > price)
+            {
+                goodOrBadpriceText.text = "Price to low";
+            }
+            else if (marketSalePrice * 1.3 < price)
+            {
+                goodOrBadpriceText.text = "Price to high";
+            }
+        }
 
 
     }
@@ -65,8 +80,13 @@ public class InputPrice : MonoBehaviour
         candyButManager.GetComponent<candyButtonManager>().getMarketPrice();
         if(marketSalePrice * .7 < price && price < marketSalePrice * 1.3)
         {
+            goodOrBadpriceText.text = "";
+            angryFace.SetActive(false);
+            goodFace.SetActive(true);
             return true;
         }
+        angryFace.SetActive(true);
+        goodFace.SetActive(false);
         return false;
     }
 
