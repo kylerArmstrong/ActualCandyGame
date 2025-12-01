@@ -152,9 +152,9 @@ public class Schedule : MonoBehaviour
 
     public void StartDay()
     {
-        inc = 0;
-        currentPeriod = periods[inc];
-        timeLeft = timePerPeriod;
+        inc = -2;
+
+        nextPeriod();
         scheduleText.GetComponent<ScheduleDisplay>().UpdateScheduleText();
     }
 }

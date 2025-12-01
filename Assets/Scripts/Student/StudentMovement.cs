@@ -10,6 +10,8 @@ public class StudentMovement : MonoBehaviour
     public int period;
     public int increment;
 
+    public GameObject button;
+
     public GameObject schedule;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +32,8 @@ public class StudentMovement : MonoBehaviour
 
     public void learn()
     {
-        if(increment < 6)
+        button.SetActive(false);
+        if (increment < 6)
         {
             navMeshAgent.SetDestination(desks[schedule.GetComponent<Schedule>().inc].position);
         }
@@ -42,6 +45,7 @@ public class StudentMovement : MonoBehaviour
     public void deal()
     {
         navMeshAgent.SetDestination(spots[increment].position);
+        button.SetActive(true);
     }
 
     public void setDeal(string loc)

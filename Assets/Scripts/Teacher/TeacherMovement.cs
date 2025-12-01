@@ -53,7 +53,7 @@ public class TeacherMovement : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && mode == "chase")
         {
             catchPlayer();
         }
@@ -150,7 +150,7 @@ public class TeacherMovement : MonoBehaviour
 
     public void seePlayer()
     {
-        if(mode == "patrol")
+        if(mode == "patrol" && !player.GetComponent<PlayerProperties>().inClass && schedule.GetComponent<Schedule>().currentPeriod != "passing")
         {
             mode = "chase";
         }

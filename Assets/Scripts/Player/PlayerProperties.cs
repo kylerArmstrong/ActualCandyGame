@@ -7,6 +7,7 @@ public class PlayerProperties : MonoBehaviour
     public float money;
     public Dictionary<string, int> candy;
     public GameObject interactingWith;
+    public bool inClass;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,4 +30,30 @@ public class PlayerProperties : MonoBehaviour
     {
         
     }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "inClassArea")
+        {
+            inClass = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "inClassArea")
+        {
+            inClass = true;
+        }
+    }
+
+    public void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "inClassArea")
+        {
+            inClass = true;
+        }
+    }
+
+
 }
